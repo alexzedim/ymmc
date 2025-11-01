@@ -18,6 +18,13 @@ export function VibeBackground({ isDark }: VibeBackgroundProps) {
     // Initialize the vibe animation worker
     const initAnimation = async () => {
       try {
+        // Random hue value (0-360) excluding green (60-150)
+        // Ranges: 0-60 (red/orange/yellow), 150-360 (blue/purple/pink/red)
+        const excludeGreen = Math.random() < 0.5 
+          ? Math.floor(Math.random() * 60) // 0-60: red to yellow
+          : Math.floor(Math.random() * 210) + 150; // 150-360: cyan to purple to red
+        const randomHue = excludeGreen;
+        
         // Create offscreen canvas for the worker
         const offscreen = canvas.transferControlToOffscreen();
         
@@ -29,16 +36,16 @@ export function VibeBackground({ isDark }: VibeBackgroundProps) {
             type: "vibe-animation-worker-init",
             payload: {
               canvas: offscreen,
-              collectionHue: 280,
+              collectionHue: randomHue,
               fps: 60,
               shaderOptions: {
                 transparent: false,
                 antialias: true,
                 canvasSize: {
-                  mobileSizePx: 430,
-                  desktopSizePx: 650,
-                  mobileScale: 0.4,
-                  desktopScale: 0.35,
+                  mobileSizePx: 600,
+                  desktopSizePx: 600,
+                  mobileScale: 0.5,
+                  desktopScale: 0.5,
                 },
               },
             },
@@ -60,8 +67,8 @@ export function VibeBackground({ isDark }: VibeBackgroundProps) {
         worker.postMessage({
           type: "vibe-animation-worker-play-animation",
           payload: {
-            hue: 280,
-            collectionHue: 280,
+            hue: randomHue,
+            collectionHue: randomHue,
             energy: 0.5,
           },
         });
@@ -101,12 +108,14 @@ export function VibeBackground({ isDark }: VibeBackgroundProps) {
   }, [isDark]);
 
   return (
-    <div className="fixed inset-0 -z-10">
+    <div className="fixed inset-0 -z-10" style={{
+      background: isDark ? "#000000" : "#e8e8e8",
+    }}>
       <canvas
         ref={canvasRef}
         className="w-full h-full"
         style={{
-          background: isDark ? "#000000" : "#ffffff",
+          objectFit: 'cover',
         }}
       />
     </div>

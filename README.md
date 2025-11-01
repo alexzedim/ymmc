@@ -6,6 +6,14 @@
 
 A powerful modification for the Yandex Music Desktop application that adds essential features missing from the vanilla client.
 
+## 🌐 Landing Page Features
+
+- **🎨 Dynamic Vibe Animation** - Full-screen animated background with random colors
+- **🌍 Russian Localization** - Automatic language detection based on browser settings
+- **💻 Smart Platform Detection** - Automatic download for Windows, macOS (Intel/ARM), Linux (DEB/RPM)
+- **⏰ Time-based Theme** - Automatic light/dark theme based on time of day (11:00-17:00 light mode)
+- **🎯 Latest Release Integration** - Automatically fetches and provides latest release from GitHub
+
 > **Note:** This modification does NOT provide free access to Yandex Music without a Yandex Plus subscription. It enhances the existing client for legitimate subscribers.
 
 ## 🎵 Features

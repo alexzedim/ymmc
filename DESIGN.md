@@ -3,30 +3,56 @@
 This document describes the current design implementation of the YMMC landing page for easy restoration after experiments.
 
 ## Current Design Version
-**Version:** 1.0 - Vibe Animation Background  
+**Version:** 0.99.999 - Full Feature Landing Page  
 **Last Updated:** 2025-01-11  
-**Commit Hash:** a2bee05
+**Status:** Pre-release with all major features
 
 ## Core Features
 
 ### 1. **Vibe Animation Background**
 - **File:** `app/components/VibeBackground.tsx`
 - **Worker Script:** `public/vibeAnimation.js`
-- **Description:** Full-screen WebGL-based animated background with colorful, dynamic blobs
+- **Description:** Full-screen WebGL-based animated background with random colors (excluding green)
 - **Settings:**
   - FPS: 60
-  - Collection Hue: 280 (purple/pink spectrum)
+  - Collection Hue: Random (0-60° or 150-360°, excluding green 60-150°)
   - Energy: 0.5 (medium animation intensity)
-  - Mobile Size: 430px
-  - Desktop Size: 650px
-  - Mobile Scale: 0.4
-  - Desktop Scale: 0.35
+  - Size: 600px x 600px
+  - Scale: 0.5
+  - Light Background: #e8e8e8 (soft gray, easy on eyes)
+  - Dark Background: #000000
 
-### 2. **Theme Switcher**
-- **Location:** Bottom-right corner (fixed position)
-- **Icon:** 🌞 (light mode) / 🌙 (dark mode)
-- **Style:** Floating button with glass morphism (`bg-white/10 backdrop-blur-md`)
-- **Functionality:** Toggles animation background between black and white
+### 2. **Time-based Theme System**
+- **File:** `app/hooks/useTimeBasedTheme.ts`
+- **Default Theme:** Light mode 11:00-17:00, Dark mode otherwise
+- **Theme Switcher:** Header-based toggle with localized labels
+- **Labels:** "Dark"/"Тёмная" and "Light"/"Светлая"
+
+### 3. **Russian Localization**
+- **File:** `app/hooks/useLocale.ts`
+- **Detection:** Automatic based on browser language (navigator.language)
+- **Localized Elements:**
+  - Hero subtitle
+  - Download button
+  - Legal warning
+  - Footer text
+  - Theme switcher labels
+  - Stat badges (stars/звёзд, downloads/загрузок, features/функций)
+
+### 4. **Platform Detection & Auto-download**
+- **Files:** `app/hooks/usePlatform.ts`, `app/hooks/useLatestRelease.ts`
+- **Platforms:** Windows, macOS (Intel/ARM), Linux (DEB/RPM)
+- **Features:**
+  - Automatic platform detection
+  - Fetches latest release from GitHub API
+  - Direct download link to platform-specific installer
+  - Loading state during fetch
+  - Fallback to releases page if platform unsupported
+
+### 5. **Favicon**
+- **File:** `app/favicon.ico`
+- **Source:** icon256.png from YandexMusicModPatcher repository
+- **Color:** Blue star (#5865F2) instead of gray
 
 ## Layout Structure
 
