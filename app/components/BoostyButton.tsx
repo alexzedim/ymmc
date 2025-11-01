@@ -1,18 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "@heroui/react";
 import { LINKS } from "../constants";
 
 export function BoostyButton() {
-  const [imageSrc, setImageSrc] = useState(LINKS.BOOSTY_IMAGE_LOCAL);
+  const [imageSrc, setImageSrc] = useState<string>(LINKS.BOOSTY_IMAGE_REMOTE);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const handleImageError = () => {
-    // Fallback to remote image if local fails
-    if (imageSrc === LINKS.BOOSTY_IMAGE_LOCAL) {
+  useEffect(() => {
+    // Try to load local image first
+    const img = new Image();
+    img.onload = () => {
+      setImageSrc(LINKS.BOOSTY_IMAGE_LOCAL);
+      setIsLoading(false);
+    };
+    img.onerror = () => {
+      // Local image failed, use remote as fallback
       setImageSrc(LINKS.BOOSTY_IMAGE_REMOTE);
-    }
-  };
+      setIsLoading(false);
+    };
+    img.src = LINKS.BOOSTY_IMAGE_LOCAL;
+  }, []);
 
   return (
     <Link
@@ -22,9 +31,9 @@ export function BoostyButton() {
     >
       <img
         src={imageSrc}
-        alt="Support on Boosty"
+        alt=""
         className="h-[68px] w-auto rounded-2xl shadow-lg"
-        onError={handleImageError}
+        style={{ opacity: isLoading ? 0 : 1, transition: 'opacity 0.3s' }}
       />
     </Link>
   );
