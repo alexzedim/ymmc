@@ -4,7 +4,9 @@ import { useState } from "react";
 import { Button, Chip, Link } from "@heroui/react";
 import { VibeBackground } from "./components/VibeBackground";
 import { ThemeSwitcher } from "./components/ThemeSwitcher";
+import { StatBadge } from "./components/StatBadge";
 import { useYandexMusicVersion } from "./hooks/useYandexMusicVersion";
+import { LINKS, STATS, COLORS } from "./constants";
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -38,7 +40,7 @@ export default function Home() {
             </div>
             <div className="flex gap-3 items-center">
               <Link
-                href="https://github.com/TheKing-OfTime/YandexMusicModClient"
+                href={LINKS.GITHUB_REPO}
                 isExternal
                 className="px-4 py-2 rounded-full bg-white/20 dark:bg-black/20 hover:bg-white/30 dark:hover:bg-black/30 backdrop-blur-sm transition-all flex items-center gap-2 text-sm font-medium"
               >
@@ -48,9 +50,12 @@ export default function Home() {
                 <span className={isDark ? "text-white" : "text-gray-900"}>GitHub</span>
               </Link>
               <Link
-                href="https://discord.gg/HGNKDxwHEH"
+                href={LINKS.DISCORD}
                 isExternal
-                className="px-4 py-2 rounded-full bg-[#5865F2] hover:bg-[#4752C4] transition-all flex items-center gap-2 text-sm font-medium"
+                style={{
+                  backgroundColor: COLORS.DISCORD_BLURPLE,
+                }}
+                className="px-4 py-2 rounded-full hover:opacity-90 transition-all flex items-center gap-2 text-sm font-medium"
               >
                 <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
@@ -84,22 +89,25 @@ export default function Home() {
             {/* Download Button - Yandex Yellow Style */}
             <Button
               as={Link}
-              href="https://github.com/TheKing-OfTime/YandexMusicModPatcher"
+              href={LINKS.PATCHER_DOWNLOAD}
               isExternal
               size="lg"
-              className="px-14 py-5 text-lg font-medium bg-[#ffcc00] text-black hover:bg-[#ffdb4d] active:bg-[#e6b800] transition-all shadow-lg hover:shadow-xl rounded-full"
+              style={{
+                backgroundColor: COLORS.YANDEX_YELLOW,
+              }}
+              className="px-14 py-5 text-lg font-medium text-black hover:opacity-90 active:opacity-80 transition-all shadow-lg hover:shadow-xl rounded-full"
             >
               Download
             </Button>
 
             {/* Donate Button - Boosty Image */}
             <Link
-              href="https://boosty.to/thekingoftime/donate"
+              href={LINKS.BOOSTY_DONATE}
               isExternal
               className="transition-all hover:scale-105 hover:opacity-90 flex items-center"
             >
               <img
-                src="https://github.com/user-attachments/assets/7b341f16-6513-4138-a3c5-b5892b062f63"
+                src={LINKS.BOOSTY_IMAGE}
                 alt="Support on Boosty"
                 className="h-[68px] w-auto rounded-2xl shadow-lg"
               />
@@ -131,66 +139,10 @@ export default function Home() {
               </p>
 
               <div className="flex gap-3 items-center flex-wrap">
-                <div className="flex items-center gap-3 px-5 py-1.5 rounded-full bg-gradient-to-r from-purple-500/15 to-purple-600/15 backdrop-blur-md border border-purple-400/25 shadow-lg hover:shadow-purple-500/50 transition-all hover:scale-105">
-                  <span className="text-xl drop-shadow-lg">⭐</span>
-                  <div className="flex items-baseline gap-1.5">
-                    <span
-                      className={`text-base font-bold drop-shadow-sm ${
-                        isDark ? "text-purple-300" : "text-purple-700"
-                      }`}
-                    >
-                      514+
-                    </span>
-                    <span
-                      className={`text-xs ${
-                        isDark ? "text-gray-400" : "text-gray-600"
-                      }`}
-                    >
-                      stars
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 px-5 py-1.5 rounded-full bg-gradient-to-r from-pink-500/15 to-pink-600/15 backdrop-blur-md border border-pink-400/25 shadow-lg hover:shadow-pink-500/50 transition-all hover:scale-105">
-                  <span className="text-xl drop-shadow-lg">📥</span>
-                  <div className="flex items-baseline gap-1.5">
-                    <span
-                      className={`text-base font-bold drop-shadow-sm ${
-                        isDark ? "text-pink-300" : "text-pink-700"
-                      }`}
-                    >
-                      10K+
-                    </span>
-                    <span
-                      className={`text-xs ${
-                        isDark ? "text-gray-400" : "text-gray-600"
-                      }`}
-                    >
-                      downloads
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 px-5 py-1.5 rounded-full bg-gradient-to-r from-blue-500/15 to-blue-600/15 backdrop-blur-md border border-blue-400/25 shadow-lg hover:shadow-blue-500/50 transition-all hover:scale-105">
-                  <span className="text-xl drop-shadow-lg">✨</span>
-                  <div className="flex items-baseline gap-1.5">
-                    <span
-                      className={`text-base font-bold drop-shadow-sm ${
-                        isDark ? "text-blue-300" : "text-blue-700"
-                      }`}
-                    >
-                      15+
-                    </span>
-                    <span
-                      className={`text-xs ${
-                        isDark ? "text-gray-400" : "text-gray-600"
-                      }`}
-                    >
-                      features
-                    </span>
-                  </div>
-                </div>
-            </div>
+                <StatBadge {...STATS.STARS} isDark={isDark} />
+                <StatBadge {...STATS.DOWNLOADS} isDark={isDark} />
+                <StatBadge {...STATS.FEATURES} isDark={isDark} />
+              </div>
             </div>
           </div>
         </footer>
