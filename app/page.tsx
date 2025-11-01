@@ -35,11 +35,10 @@ export default function Home() {
               {version && (
                 <Chip 
                   size="sm" 
-                  variant="solid" 
+                  color="warning" 
+                  variant="flat"
                   className={`font-semibold ${
-                    isDark 
-                      ? "bg-purple-600 text-white" 
-                      : "bg-purple-700 text-white"
+                    isDark ? "text-white" : "text-gray-900"
                   }`}
                 >
                   {version}
