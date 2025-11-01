@@ -71,7 +71,7 @@ export default function Home() {
               href="https://github.com/TheKing-OfTime/YandexMusicModPatcher"
               isExternal
               size="lg"
-              className="px-16 py-6 text-lg font-medium bg-[#ffcc00] text-black hover:bg-[#ffdb4d] active:bg-[#e6b800] transition-all shadow-lg hover:shadow-xl rounded-full"
+              className="px-14 py-5 text-lg font-medium bg-[#ffcc00] text-black hover:bg-[#ffdb4d] active:bg-[#e6b800] transition-all shadow-lg hover:shadow-xl rounded-full"
             >
               Download
             </Button>
