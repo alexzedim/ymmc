@@ -11,6 +11,7 @@ export const STATS = {
   STARS: {
     value: "514+",
     label: "stars",
+    labelRu: "звёзд",
     icon: "⭐",
     gradient: "from-purple-500/15 to-purple-600/15",
     border: "border-purple-400/25",
@@ -21,6 +22,7 @@ export const STATS = {
   DOWNLOADS: {
     value: "10K+",
     label: "downloads",
+    labelRu: "загрузок",
     icon: "📥",
     gradient: "from-pink-500/15 to-pink-600/15",
     border: "border-pink-400/25",
@@ -31,6 +33,7 @@ export const STATS = {
   FEATURES: {
     value: "15+",
     label: "features",
+    labelRu: "функций",
     icon: "✨",
     gradient: "from-blue-500/15 to-blue-600/15",
     border: "border-blue-400/25",

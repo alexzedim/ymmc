@@ -1,12 +1,31 @@
+"use client";
+
 import { Button, Link } from "@heroui/react";
 import { BoostyButton } from "./BoostyButton";
 import { LINKS, COLORS } from "../constants";
+import { useLocale } from "../hooks/useLocale";
 
 interface HeroSectionProps {
   isDark: boolean;
 }
 
+const subtitles = {
+  en: "Enhance your Yandex Music experience with powerful features",
+  ru: "Улучшите свой опыт использования Яндекс Музыки с мощными функциями",
+};
+
+const warnings = {
+  en: "⚠️ This modification does NOT provide free access to Yandex Music features. An active subscription is still required to use the service.",
+  ru: "⚠️ Эта модификация НЕ предоставляет бесплатный доступ к функциям Яндекс Музыки. Активная подписка по-прежнему необходима для использования сервиса.",
+};
+
+const downloadButton = {
+  en: "Download",
+  ru: "Скачать",
+};
+
 export function HeroSection({ isDark }: HeroSectionProps) {
+  const locale = useLocale();
   return (
     <main className="flex-1 container mx-auto px-6 flex flex-col items-center justify-between">
       <div className="flex-1" />
@@ -24,7 +43,7 @@ export function HeroSection({ isDark }: HeroSectionProps) {
             }`}
             style={{ fontFamily: "var(--font-caveat)" }}
           >
-            Enhance your Yandex Music experience with powerful features
+            {subtitles[locale as keyof typeof subtitles] || subtitles.en}
           </p>
         </div>
 
@@ -41,7 +60,7 @@ export function HeroSection({ isDark }: HeroSectionProps) {
             }}
             className="px-14 py-5 text-lg font-medium text-black hover:opacity-90 active:opacity-80 transition-all shadow-lg hover:shadow-xl rounded-full"
           >
-            Download
+            {downloadButton[locale as keyof typeof downloadButton] || downloadButton.en}
           </Button>
 
           {/* Donate Button - Boosty Image */}
@@ -54,9 +73,7 @@ export function HeroSection({ isDark }: HeroSectionProps) {
             isDark ? "text-gray-400" : "text-gray-500"
           }`}
         >
-          ⚠️ This modification does NOT provide free access to Yandex Music
-          features. An active subscription is still required to use the
-          service.
+          {warnings[locale as keyof typeof warnings] || warnings.en}
         </p>
       </div>
 
