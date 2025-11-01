@@ -4,6 +4,8 @@ import { Button, Link } from "@heroui/react";
 import { BoostyButton } from "./BoostyButton";
 import { LINKS, COLORS } from "../constants";
 import { useLocale } from "../hooks/useLocale";
+import { usePlatform } from "../hooks/usePlatform";
+import { useLatestRelease } from "../hooks/useLatestRelease";
 
 interface HeroSectionProps {
   isDark: boolean;
@@ -26,6 +28,11 @@ const downloadButton = {
 
 export function HeroSection({ isDark }: HeroSectionProps) {
   const locale = useLocale();
+  const platform = usePlatform();
+  const { downloadUrl, loading } = useLatestRelease(platform);
+
+  const downloadHref = downloadUrl || LINKS.PATCHER_DOWNLOAD;
+
   return (
     <main className="flex-1 container mx-auto px-6 flex flex-col items-center justify-between">
       <div className="flex-1" />
@@ -52,9 +59,10 @@ export function HeroSection({ isDark }: HeroSectionProps) {
           {/* Download Button - Yandex Yellow Style */}
           <Button
             as={Link}
-            href={LINKS.PATCHER_DOWNLOAD}
+            href={downloadHref}
             isExternal
             size="lg"
+            isLoading={loading}
             style={{
               backgroundColor: COLORS.YANDEX_YELLOW,
             }}

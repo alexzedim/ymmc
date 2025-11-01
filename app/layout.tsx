@@ -32,6 +32,10 @@ export const metadata: Metadata = {
     "Last.FM",
     "music player",
   ],
+  icons: {
+    icon: "/icon256.png",
+    apple: "/icon256.png",
+  },
 };
 
 export default function RootLayout({
