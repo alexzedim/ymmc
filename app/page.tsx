@@ -1,16 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Chip,
-  Divider,
-  Link,
-} from "@heroui/react";
+import { Button, Chip, Link } from "@heroui/react";
 import { VibeBackground } from "./components/VibeBackground";
 import { ThemeSwitcher } from "./components/ThemeSwitcher";
 import { useYandexMusicVersion } from "./hooks/useYandexMusicVersion";
