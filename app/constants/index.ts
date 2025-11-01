@@ -3,7 +3,8 @@ export const LINKS = {
   DISCORD: "https://discord.gg/HGNKDxwHEH",
   PATCHER_DOWNLOAD: "https://github.com/TheKing-OfTime/YandexMusicModPatcher",
   BOOSTY_DONATE: "https://boosty.to/thekingoftime/donate",
-  BOOSTY_IMAGE: "https://github.com/user-attachments/assets/7b341f16-6513-4138-a3c5-b5892b062f63",
+  BOOSTY_IMAGE_LOCAL: "/boosty-button.png",
+  BOOSTY_IMAGE_REMOTE: "https://github.com/user-attachments/assets/7b341f16-6513-4138-a3c5-b5892b062f63",
 } as const;
 
 export const STATS = {

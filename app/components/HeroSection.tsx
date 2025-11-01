@@ -1,4 +1,5 @@
 import { Button, Link } from "@heroui/react";
+import { BoostyButton } from "./BoostyButton";
 import { LINKS, COLORS } from "../constants";
 
 interface HeroSectionProps {
@@ -44,17 +45,7 @@ export function HeroSection({ isDark }: HeroSectionProps) {
           </Button>
 
           {/* Donate Button - Boosty Image */}
-          <Link
-            href={LINKS.BOOSTY_DONATE}
-            isExternal
-            className="transition-all hover:scale-105 hover:opacity-90 flex items-center"
-          >
-            <img
-              src={LINKS.BOOSTY_IMAGE}
-              alt="Support on Boosty"
-              className="h-[68px] w-auto rounded-2xl shadow-lg"
-            />
-          </Link>
+          <BoostyButton />
         </div>
 
         {/* Legal Warning */}
