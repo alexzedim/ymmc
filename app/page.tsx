@@ -107,6 +107,13 @@ export default function Home() {
               />
             </Link>
           </div>
+
+          {/* Legal Warning */}
+          <p className={`text-sm text-center max-w-2xl ${
+            isDark ? "text-gray-400" : "text-gray-500"
+          }`}>
+            ⚠️ This modification does NOT provide free access to Yandex Music features. An active subscription is still required to use the service.
+          </p>
         </main>
 
         {/* Footer */}
