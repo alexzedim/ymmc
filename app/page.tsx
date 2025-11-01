@@ -68,7 +68,20 @@ export default function Home() {
           </div>
         </header>
 
-        <main className="flex-1 container mx-auto px-6 pt-32 pb-20 flex items-center justify-center">
+        <main className="flex-1 container mx-auto px-6 pt-32 pb-20 flex flex-col items-center justify-center gap-12">
+          {/* Hero Title */}
+          <div className="text-center space-y-4">
+            <h1 className="text-6xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
+              Yandex Music Mod Client
+            </h1>
+            <p className={`text-xl font-medium ${
+              isDark ? "text-gray-200" : "text-gray-800"
+            }`}>
+              Enhance your Yandex Music experience with powerful features
+            </p>
+          </div>
+
+          {/* CTA Buttons */}
           <div className="flex gap-6 items-center flex-wrap justify-center">
             {/* Download Button - Yandex Yellow Style */}
             <Button
