@@ -85,7 +85,7 @@ export default function Home() {
               <img
                 src="https://github.com/user-attachments/assets/7b341f16-6513-4138-a3c5-b5892b062f63"
                 alt="Support on Boosty"
-                className="h-[52px] w-auto rounded-2xl shadow-lg"
+                className="h-[60px] w-auto rounded-2xl shadow-lg"
               />
             </Link>
           </div>
