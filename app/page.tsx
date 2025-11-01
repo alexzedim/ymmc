@@ -28,12 +28,12 @@ export default function Home() {
           <div className="container mx-auto px-6 py-4 flex justify-between items-center">
             <div className="flex items-center gap-2">
               <span
-                className="text-2xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 bg-clip-text text-transparent"
+                className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
               >
                 YMMC
               </span>
               {version && (
-                <Chip size="sm" color="warning" variant="flat">
+                <Chip size="sm" color="secondary" variant="solid" className="font-semibold">
                   {version}
                 </Chip>
               )}
