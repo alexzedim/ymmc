@@ -13,9 +13,11 @@ import {
 } from "@heroui/react";
 import { VibeBackground } from "./components/VibeBackground";
 import { ThemeSwitcher } from "./components/ThemeSwitcher";
+import { useYandexMusicVersion } from "./hooks/useYandexMusicVersion";
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
+  const { version } = useYandexMusicVersion();
 
   return (
     <>
@@ -30,9 +32,11 @@ export default function Home() {
               >
                 YMMC
               </span>
-              <Chip size="sm" color="warning" variant="flat">
-                v5.x
-              </Chip>
+              {version && (
+                <Chip size="sm" color="warning" variant="flat">
+                  {version}
+                </Chip>
+              )}
             </div>
             <div className="flex gap-4 items-center">
               <Button
@@ -72,16 +76,16 @@ export default function Home() {
                   isDark ? "text-gray-400" : "text-gray-600"
                 }`}
               >
-                Not affiliated with Yandex. Made with ❤️ & opensource by
-                community
+                Not affiliated with Yandex. Made with opensource and ❤️  by Artem | TheKingOfTime
+                & community.
               </p>
 
               <div className="flex gap-3 items-center flex-wrap">
-                <div className="flex items-center gap-3 px-5 py-1.5 rounded-full bg-gradient-to-r from-purple-500/20 to-purple-600/20 backdrop-blur-sm border border-purple-500/30">
-                  <span className="text-xl">⭐</span>
+                <div className="flex items-center gap-3 px-5 py-1.5 rounded-full bg-gradient-to-r from-purple-500/20 to-purple-600/20 backdrop-blur-md border border-purple-400/40 shadow-lg hover:shadow-purple-500/50 transition-all hover:scale-105">
+                  <span className="text-xl drop-shadow-lg">⭐</span>
                   <div className="flex items-baseline gap-1.5">
                     <span
-                      className={`text-base font-bold ${
+                      className={`text-base font-bold drop-shadow-sm ${
                         isDark ? "text-purple-300" : "text-purple-700"
                       }`}
                     >
@@ -97,11 +101,11 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 px-5 py-1.5 rounded-full bg-gradient-to-r from-pink-500/20 to-pink-600/20 backdrop-blur-sm border border-pink-500/30">
-                  <span className="text-xl">📥</span>
+                <div className="flex items-center gap-3 px-5 py-1.5 rounded-full bg-gradient-to-r from-pink-500/20 to-pink-600/20 backdrop-blur-md border border-pink-400/40 shadow-lg hover:shadow-pink-500/50 transition-all hover:scale-105">
+                  <span className="text-xl drop-shadow-lg">📥</span>
                   <div className="flex items-baseline gap-1.5">
                     <span
-                      className={`text-base font-bold ${
+                      className={`text-base font-bold drop-shadow-sm ${
                         isDark ? "text-pink-300" : "text-pink-700"
                       }`}
                     >
@@ -117,11 +121,11 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 px-5 py-1.5 rounded-full bg-gradient-to-r from-blue-500/20 to-blue-600/20 backdrop-blur-sm border border-blue-500/30">
-                  <span className="text-xl">✨</span>
+                <div className="flex items-center gap-3 px-5 py-1.5 rounded-full bg-gradient-to-r from-blue-500/20 to-blue-600/20 backdrop-blur-md border border-blue-400/40 shadow-lg hover:shadow-blue-500/50 transition-all hover:scale-105">
+                  <span className="text-xl drop-shadow-lg">✨</span>
                   <div className="flex items-baseline gap-1.5">
                     <span
-                      className={`text-base font-bold ${
+                      className={`text-base font-bold drop-shadow-sm ${
                         isDark ? "text-blue-300" : "text-blue-700"
                       }`}
                     >
