@@ -71,7 +71,7 @@ export default function Home() {
           </div>
         </header>
 
-        <main className="flex-1 container mx-auto px-6 pt-24 pb-20 flex flex-col items-center justify-start gap-12">
+        <main className="flex-1 container mx-auto px-6 pt-32 pb-20 flex flex-col items-center justify-center gap-12">
           {/* Hero Title */}
           <div className="text-center space-y-4">
             <h1 className="text-6xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent uppercase">
